@@ -6,6 +6,7 @@ const { MongoClient } = require('mongodb');
 // one entry at a time
 // then filter data based on "type" 
 //db.getCollection('customers')
+console.log("hi");
 
 document.addEventListener("DOMContentLoaded", function (){
 const loadButton = document.getElementById("load");
