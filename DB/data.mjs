@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+import MongoClient from "mongodb";
 
 //use('sample_analytics');
 
