@@ -2,13 +2,13 @@ body {
     background-color: rgb(149, 95, 170);
 }
 
-body div section .main-section{
+/* body div section .main-section{
     justify-content: center;
     align-items: center;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-}
+} */
 
 .upper {
     border-bottom: 5px solid darkorange;
@@ -18,22 +18,50 @@ body div section .main-section{
 }
 
 .upper div {
-    padding: 30px 15px 30px 15px;
+    padding: 30px 15px 30px 15px; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
 }
 
-.home img {
-    /* margin: 10px; */
-    float: left;
-    padding: 0;
+.logo {
+    display: inline;
 }
-.hometext {
+
+.buttons {
     float: right;
-    /* padding: 50px 15px; */
 }
 
 .messages {
-    float: right;
-    /* padding:  */
+    margin-right: 30px;
+    margin-top: 5px;
+    border: 3px solid grey;
+    background-color: rgb(149, 95, 170);
+    padding: 10px 10px;
+    border-radius: 20px;
+    color: white;
+    transition-duration: 300ms;
+}
+
+.messages:hover {
+    color: black;
+    background-color: blueviolet;
+    border-color: white;
+}
+
+.profile {
+    margin-right: 30px;
+    border: 3px solid grey;
+    background-color: rgb(149, 95, 170);
+    padding: 10px 10px;
+    border-radius: 20px;
+    color: white;
+    transition-duration: 300ms;
+}
+
+.profile:hover {
+    color: black;
+    background-color: blueviolet;
+    border-color: white;
 }
 
 .clearfix::after {
@@ -42,8 +70,52 @@ body div section .main-section{
     display: table;
 }
 
-.next-ship {
+.match {
+    padding: 30px;
     justify-content: center;
     align-items: center;
     text-align: center;
+    max-width: 800px;
+    border: 3px solid grey;
+    border-radius: 20px;
+    background-color: rgb(234, 181, 255);
+}
+
+.match img {
+    border: 3px solid black;
+    border-radius: 40px;
+}
+
+.match div {
+    font-size: 30px;
+}
+
+.match .accept {
+    float:left;
+    border: 3px solid rgb(28, 79, 59);
+    border-radius: 20px;
+    background-color: rgb(60, 255, 161);
+    color: white;
+}
+
+.match .reject {
+    float: right;
+    border: 3px solid rgb(70, 26, 26);
+    border-radius: 20px;
+    background-color: rgb(255, 55, 55);
+    color: white;
+}
+
+.next {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.next button {
+    margin-top: 30px;
+    border: 3px solid white;
+    background-color: blueviolet;
+    border-radius: 20px;
+    padding: 10px 10px;
 }
