@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(149, 95, 170);
+}
+
+body div section .main-section{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.upper {
+    border-bottom: 5px solid darkorange;
+    background-color: orange;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.upper div {
+    padding: 30px 15px 30px 15px;
+}
+
+.home img {
+    /* margin: 10px; */
+    float: left;
+    padding: 0;
+}
+.hometext {
+    float: right;
+    /* padding: 50px 15px; */
+}
+
+.messages {
+    float: right;
+    /* padding:  */
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.next-ship {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
