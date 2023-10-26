@@ -25,46 +25,11 @@ async function run() {
     const database = client.db(dbName);
     const collection = database.collection(collectionName);
 
-    // const matches = [
-    //     {
-    //         name: "max",
-    //         species: "dog",
-    //         age: 8,
-    //         interests: 
-    //         [
-    //             "playing fetch",
-    //             "eating",
-    //             "running",
-    //             "waiting for my owner",
-    //             "digging",
-    //         ],
-    //     },
-    //     {
-    //         name: "dawg",
-    //         species: "dog",
-    //         age: 3,
-    //         interests:
-    //         [
-    //             "fetch",
-    //             "sitting",
-    //             "walks",
-    //             "digging",
-    //         ],
-    //     }
-    // ];
-
-    // try {
-    //     const insertManyResult = await collection.insertMany(matches);
-    //     console.log(`${insertManyResult.insertedCount} documents successfully inserted.\n`);
-    // } catch (err) {
-    //     console.error(`Something went wrong trying to insert the new documents: ${err}\n`);
-    // }
-
     // Ensures that the client will close when you finish/error
 
     //await findByQuery(collection);
     //await findOneByQuery(collection);
-    await updateOne(collection);
+    //await updateOne(collection);
 
     await client.close();
 }
@@ -117,7 +82,7 @@ async function updateOne(collection) {
 }
 
 async function deleteEntry(collection) {
-    const deleteQuery = { name: { $in: ["elotes", "fried rice"] } };
+    const deleteQuery = { name: "" };
     try {
         const deleteResult = await collection.deleteMany(deleteQuery);
         console.log(`Deleted ${deleteResult.deletedCount} documents\n`);
