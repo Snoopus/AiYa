@@ -62,13 +62,15 @@ async function run() {
 
     // Ensures that the client will close when you finish/error
 
-    await findByQuery(collection);
+    //await findByQuery(collection);
+    //await findOneByQuery(collection);
+    await updateOne(collection);
 
     await client.close();
 }
 
 async function findByQuery(collection){
-    const findQuery = { name: "max" };
+    const findQuery = { interests: "digging" };
 
     try {
         const cursor = await collection.find(findQuery).sort({ name: 1 });
@@ -82,7 +84,49 @@ async function findByQuery(collection){
     }
 }
 
-async function addMany(){
+async function findOneByQuery(collection) {
+    const findOneQuery = { interests: "digging" };
+
+    try {
+        const findOneResult = await collection.findOne(findOneQuery);
+    if (findOneResult === null) {
+        console.log("Couldn't find any matches with that interest\n");
+    } else {
+        console.log(`Found an animal with interest:\n${JSON.stringify(findOneResult)}\n`);
+    }
+    } catch (err) {
+        console.error(`Something went wrong trying to find one document: ${err}\n`);
+    }
+}
+
+async function updateOne(collection) {
+    const findOneQuery  = { name: "max" };
+    const updateDoc = { $set: { age: 9 } };
+
+    // The following updateOptions document specifies that we want the *updated*
+    // document to be returned. By default, we get the document as it was *before*
+    // the update.
+    const updateOptions = { returnOriginal: false };
+
+    try {
+    const updateResult = await collection.findOneAndUpdate(findOneQuery, updateDoc, updateOptions);
+    console.log(`Here is the updated document:\n${JSON.stringify(updateResult)}\n`);
+    } catch (err) {
+        console.error(`Something went wrong trying to update one document: ${err}\n`);
+    }
+}
+
+async function deleteEntry(collection) {
+    const deleteQuery = { name: { $in: ["elotes", "fried rice"] } };
+    try {
+        const deleteResult = await collection.deleteMany(deleteQuery);
+        console.log(`Deleted ${deleteResult.deletedCount} documents\n`);
+    } catch (err) {
+        console.error(`Something went wrong trying to delete documents: ${err}\n`);
+    }
+}
+
+async function addMany(collection){
     const matches = [
         {
             name: "max",
