@@ -25,6 +25,7 @@ async function run() {
     const database = client.db(dbName);
     const collection = database.collection(collectionName);
 
+    addToPage();
     // Ensures that the client will close when you finish/error
 
     //await findByQuery(collection);
@@ -32,6 +33,23 @@ async function run() {
     //await updateOne(collection);
 
     await client.close();
+}
+
+async function addToPage(collection){
+    const res = await collection.find();
+    await res.forEach(match => {
+        const div_match = document.createElement("div");
+        div_match.setAttribute("class", "match");
+
+        const div_name = document.createElement("div");
+        div_name.setAttribute("class", "name");
+
+        const div_species = document.createElement("div");
+        div_species.setAttribute("class", "species");
+
+        div_match.append(div_name);
+        div_match.append(div_species);
+    });
 }
 
 async function findByQuery(collection){
